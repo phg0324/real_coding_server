@@ -23,20 +23,6 @@ public class SyllabusService {
     public Optional<Syllabus> getSyllabus(Integer syllabusId){
         return syllabusRepository.findById(syllabusId);
     }
-    public Optional<Syllabus> updateSyllabus(Integer syllabusId, SyllabusRequest syllabusRequest){
-        return syllabusRepository.findById(syllabusId)
-                .map(syllabus ->{
-                    syllabus.setName(syllabusRequest.getName());
-                    syllabus.setYear(syllabusRequest.getYear());
-                    syllabus.setGrade(syllabusRequest.getGrade());
-                    syllabus.setDepartment(syllabusRequest.getDepartment());
-                    syllabus.setSubjectNum(syllabusRequest.getSubjectNum());
-                    syllabus.setCompletionDiv(syllabusRequest.getCompletionDiv());
-                    syllabus.setCredit(syllabusRequest.getCredit());
-
-                    return syllabusRepository.save(syllabus);
-                });
-    }
 
     public void deleteSyllabus(Integer syllabusId){
         syllabusRepository.findById(syllabusId)

@@ -1,10 +1,7 @@
 package com.cnu.real_coding_server.controller;
 
-import com.cnu.real_coding_server.entity.Project;
 import com.cnu.real_coding_server.entity.Syllabus;
-import com.cnu.real_coding_server.model.request.ProjectRequest;
 import com.cnu.real_coding_server.model.request.SyllabusRequest;
-import com.cnu.real_coding_server.service.ProjectService;
 import com.cnu.real_coding_server.service.SyllabusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +26,6 @@ public class SyllabusController {
     @GetMapping("/{syllabusId}")
     public ResponseEntity<Syllabus> getSyllabus(@PathVariable("syllabusId") Integer syllabusId){
         return ResponseEntity.ok(syllabusService.getSyllabus(syllabusId).orElse(null));
-    }
-    @PutMapping("/{syllabusId}")
-    public ResponseEntity<Syllabus> updateSyllabus(@PathVariable("syllabusId") Integer syllabusId,
-                                                 @RequestBody SyllabusRequest syllabusRequest){
-        return ResponseEntity.ok(syllabusService.updateSyllabus(syllabusId,syllabusRequest).orElse(null));
     }
     @DeleteMapping("/{syllabusId}")
     public ResponseEntity<Void> deleteSyllabus(@PathVariable("syllabusId") Integer syllabusId){
